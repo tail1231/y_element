@@ -1,4 +1,10 @@
-export type ButtonType = "primary" | "success" | "warning" | "danger" | "error";
+export type ButtonType =
+  | "primary"
+  | "success"
+  | "warning"
+  | "danger"
+  | "error"
+  | "info";
 export type ButtonSize = "large" | "small";
 
 export interface ButtonProps {
@@ -8,4 +14,6 @@ export interface ButtonProps {
   round?: boolean;
   circle?: boolean;
   disabled?: boolean;
+  icon?: string;
+  loading?: boolean;
 }

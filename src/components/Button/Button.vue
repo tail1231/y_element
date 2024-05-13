@@ -8,20 +8,21 @@
       'is-round': round,
       'is-circle': circle,
       'is-disabled': disabled,
+      'is-loading': loading,
     }"
-    :disabled="disabled"
+    :disabled="disabled || loading"
   >
-    <span><slot /></span>
+    <Icon icon="spinner" spin v-if="loading" />
+    <Icon :icon="icon" v-if="icon" />
+    <span> <slot /></span>
   </button>
 </template>
 
 <script setup lang="ts">
 import type { ButtonProps } from "./types";
+import Icon from "../Icon/Icon.vue";
 defineOptions({ name: "YButton", inheritAttrs: false });
 defineProps<ButtonProps>();
 </script>
 
-<style>
-.y-button {
-}
-</style>
+<style></style>

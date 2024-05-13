@@ -1,0 +1,49 @@
+@each $val in primary, info, success, warning, danger, r {
+  .y-alert--$(val) {
+    --y-alert-title-color: var(--y-color-$(val));
+    --y-alert-description-color: var(--y-color-$(val));
+    --y-alert-bg-color: var(--y-color-$(val)-light-9);
+    --y-alert-icon-color: var(--y-color-$(val));
+  }
+}
+
+.y-alert {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: var(--y-alert-bg-color);
+  --y-alert-text-color-placeholder: var(--y-text-color-placeholder);
+  .y-alert__icon {
+    margin-right: 12px;
+    color: var(--y-alert-title-color);
+  }
+  .y-alert__content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: var(--y-alert-title-color);
+  }
+  .y-alert__close-icon {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    cursor: pointer;
+    span {
+      color: var(--y-alert-text-color-placeholder);
+    }
+  }
+}
+
+.fade-enter-from {
+  opacity: 1;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--y-transition-duration);
+}
+
+.fade-leave-to {
+  opacity: 0;
+}

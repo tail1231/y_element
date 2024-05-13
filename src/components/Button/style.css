@@ -15,44 +15,43 @@
   --y-button-outline-color: var(--y-color-primary-light-5);
   --y-button-active-color: var(--y-text-color-primary);
 }
-
 .y-button {
   display: inline-flex;
-  align-items: center;
   justify-content: center;
-  box-sizing: border-box;
-  height: 32px;
-  padding: 8px 15px;
-  color: var(--y-button-text-color);
-  font-weight: var(--y-button-font-weight);
-  font-size: var(--y-font-size-base);
+  align-items: center;
   line-height: 1;
+  height: 32px;
   white-space: nowrap;
+  cursor: pointer;
+  color: var(--y-button-text-color);
   text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--y-button-font-weight);
+  user-select: none;
   vertical-align: middle;
+  -webkit-appearance: none;
   background-color: var(--y-button-bg-color);
   border: var(--y-border);
   border-color: var(--y-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--y-font-size-base);
   border-radius: var(--y-border-radius-base);
-  outline: none;
-  cursor: pointer;
-  transition: 0.1s;
-  -webkit-appearance: none;
-  user-select: none;
   & + & {
     margin-left: 12px;
   }
   &:hover,
   &:focus {
     color: var(--y-button-hover-text-color);
-    background-color: var(--y-button-hover-bg-color);
     border-color: var(--y-button-hover-border-color);
+    background-color: var(--y-button-hover-bg-color);
     outline: none;
   }
   &:active {
     color: var(--y-button-active-text-color);
-    background-color: var(--y-button-active-bg-color);
     border-color: var(--y-button-active-border-color);
+    background-color: var(--y-button-active-bg-color);
     outline: none;
   }
   &.is-plain {
@@ -66,8 +65,8 @@
   }
   /*circle*/
   &.is-circle {
-    padding: 8px;
     border-radius: 50%;
+    padding: 8px;
   }
   /*disabled*/
   &.is-disabled,
@@ -77,16 +76,15 @@
   &[disabled]:hover,
   &[disabled]:focus {
     color: var(--y-button-disabled-text-color);
-    background-color: var(--y-button-disabled-bg-color);
-    background-image: none;
-    border-color: var(--y-button-disabled-border-color);
     cursor: not-allowed;
+    background-image: none;
+    background-color: var(--y-button-disabled-bg-color);
+    border-color: var(--y-button-disabled-border-color);
   }
   [class*="y-icon"] + span {
     margin-left: 6px;
   }
 }
-
 @each $val in primary, success, warning, info, danger {
   .y-button--$(val) {
     --y-button-text-color: var(--y-color-white);
@@ -103,4 +101,27 @@
     --y-button-disabled-bg-color: var(--y-color-$(val)-light-5);
     --y-button-disabled-border-color: var(--y-color-$(val)-light-5);
   }
+  .y-button--$(val).is-plain {
+    --y-button-text-color: var(--y-color-$(val));
+    --y-button-bg-color: var(--y-color-$(val)-light-9);
+    --y-button-border-color: var(--y-color-$(val)-light-5);
+    --y-button-hover-text-color: var(--y-color-white);
+    --y-button-hover-bg-color: var(--y-color-$(val));
+    --y-button-hover-border-color: var(--y-color-$(val));
+    --y-button-active-text-color: var(--y-color-white);
+  }
+}
+.y-button--large {
+  --y-button-size: 40px;
+  height: var(--y-button-size);
+  padding: 12px 19px;
+  font-size: var(--y-font-size-base);
+  border-radius: var(--y-border-radius-base);
+}
+.y-button--small {
+  --y-button-size: 24px;
+  height: var(--y-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--y-border-radius-base) - 1px);
 }
